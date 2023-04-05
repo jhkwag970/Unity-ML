@@ -8,6 +8,10 @@ using Unity.MLAgents.Actuators;
 public class Ball : Agent
 {
     [SerializeField] Transform target;
+    public override void OnEpisodeBegin()
+    {
+        transform.position = Vector3.zero;
+    }
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.position);
