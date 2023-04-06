@@ -5,9 +5,9 @@ Unity for ML-Agents
 
 Testing tutorial ML-agents to earn reward for getting into the goal
 
-Purple floor represents cube reaches to the wall, Reward(-1) 
+<b> Purple </b> floor represents cube reaches to the wall, Reward(-1) 
 
-Green floor reperesent cubse reaches to the goal, Reward(+1)
+<b> Green </b> floor reperesent cubse reaches to the goal, Reward(+1)
 
 ![Honeycam 2023-04-05 21-58-35](https://user-images.githubusercontent.com/54969114/230253417-fbfe3ef4-d259-4275-8e96-2eda34ca237a.gif)
 
