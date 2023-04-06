@@ -17,7 +17,7 @@ After ML is done, use the NN model to see the result.
 
 ![Honeycam 2023-04-05 21-56-25](https://user-images.githubusercontent.com/54969114/230253490-69b07a05-8287-43b8-b6fb-e226feaba833.gif)
 
-<h3> Further Testing with Random Position <h3>
+<h3> Further Testing with Random Position </h3>
 
 Above tutorial cannot cover the case when the goal is at different position. In this case, I will ML the cube to reach to the goal that is not in same position in every episode.
 
