@@ -8,14 +8,20 @@ using Unity.MLAgents.Actuators;
 public class Ball : Agent
 {
     [SerializeField] Transform target;
+    [SerializeField] private Material winMaterial;
+    [SerializeField] private Material loseMaterial;
+    [SerializeField] private MeshRenderer floor;
     public override void OnEpisodeBegin()
     {
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
+        transform.localPosition = Vector3.zero;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(target.position);
+        /*        sensor.AddObservation(transform.position);
+                sensor.AddObservation(target.position);*/
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(target.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -24,7 +30,8 @@ public class Ball : Agent
         float moveY = actions.ContinuousActions[1];
 
         float speed = 5f;
-        transform.position += new Vector3(moveX, 0, moveY) * Time.deltaTime * speed;
+        //transform.position += new Vector3(moveX, 0, moveY) * Time.deltaTime * speed;
+        transform.localPosition += new Vector3(moveX, 0, moveY) * Time.deltaTime * speed;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -39,12 +46,14 @@ public class Ball : Agent
         if(other.TryGetComponent<Goal>(out Goal goal))
         {
             SetReward(+1f);
+            floor.material = winMaterial;
             EndEpisode();
         }
 
         if(other.TryGetComponent<Wall>(out Wall wall))
         {
             SetReward(-1f);
+            floor.material = loseMaterial;
             EndEpisode();
         }
     }
