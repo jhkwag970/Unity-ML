@@ -14,7 +14,8 @@ public class Ball : Agent
     public override void OnEpisodeBegin()
     {
         //transform.position = Vector3.zero;
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = new Vector3(Random.Range(-5f, 0f), 0, Random.Range(-2f, 2f));
+        target.localPosition = new Vector3(Random.Range(1.2f, 2.2f), 0.5f, Random.Range(-2f, 2f));
     }
     public override void CollectObservations(VectorSensor sensor)
     {
